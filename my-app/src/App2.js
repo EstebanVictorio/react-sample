@@ -19,8 +19,10 @@ class App2 extends React.Component {
   }
 
   render() {
+    const { text } = this.props
     return (
       <Fragment>
+        <div>{text}</div>
         <div>My count is: {this.getCounter()}</div>
         <Button color="red" text="Red" handleClick={this.incrementCounter} />
       </Fragment>
