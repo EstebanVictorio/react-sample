@@ -1,12 +1,28 @@
 import React, { Fragment } from "react"
 import Button from "./components/button"
+
 class App2 extends React.Component {
+  constructor() {
+    super()
+    this.state = { counter: 0 }
+    this.incrementCounter = this.incrementCounter.bind(this)
+  }
+
+  getCounter() {
+    const { counter } = this.state
+    return counter
+  }
+
+  incrementCounter() {
+    const { counter } = this.state
+    this.setState({ counter: counter + 1 })
+  }
+
   render() {
     return (
       <Fragment>
-        <Button color="red" text="Red" />
-        <Button color="blue" text="Blue" />
-        <Button color="green" text="Green" />
+        <div>My count is: {this.getCounter()}</div>
+        <Button color="red" text="Red" handleClick={this.incrementCounter} />
       </Fragment>
     )
   }
